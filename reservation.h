@@ -40,7 +40,7 @@ typedef struct listNode {
     struct listNode* next;
 } resList;
 
-inline void readPatient(FILE* fp) {
+inline extern void readPatient(FILE* fp) {
     resList *head = NULL, *tail = NULL, *new;
 
     while (fscanf(fp, "%s %s %s %d/%d/%d %s %s %s %s %s %s")) {

@@ -4,7 +4,6 @@
 
 
 #include <stdio.h>
-#include <ctype.h>
 #include <conio.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -24,6 +23,7 @@ int access;
 char printMainMenu(void);
 
 int main() {
+    init();
     scanf("请选择您的操作权限：\n", &access);
 
     while (true) {
@@ -32,9 +32,9 @@ int main() {
             case '1':
                 printDocList();
                 break;
-            case '2':
-
-
+            default:
+                printf("err");
+                exit(0);
 
         }
     }
