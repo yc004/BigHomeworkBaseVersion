@@ -27,7 +27,7 @@ int main() {
     scanf("请选择您的操作权限：\n", &access);
 
     while (true) {
-        char action = printMainMenu();
+        const char action = printMainMenu();
         switch (action) {
             case '1':
                 printDocList();

@@ -1,7 +1,7 @@
 #ifndef DOCTOR_H
 #define DOCTOR_H
+
 #include <stdio.h>
-#include <string.h>
 
 #include "departmentO.h"
 
@@ -35,8 +35,8 @@ typedef struct doctorList {
 } Dlist;
 
 // 将字符串类型的门诊科室转换为对应的枚举 将职称的字符串转换为枚举
-inline void convert(const char* main, const char* sub, const char* title, Doctor* doctor);
+extern void convert(const char* main, const char* sub, const char* title, Doctor* doctor);
 
-inline void readDoctor(FILE* fp, Dlist** doctor_list);
+extern void readDoctor(FILE* fp, Dlist** doctor_list);
 
 #endif //DOCTOR_H

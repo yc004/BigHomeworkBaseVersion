@@ -12,7 +12,7 @@ extern void init() {
     system("chcp 65001");
 
     // 读取医生信息
-    FILE* doctorFp = fopen("doctordata.txt", "r");
+    FILE* doctorFp = fopen("../src/doctordata.txt", "r");
     readDoctor(doctorFp, &doctor_list);
 
     // 读取患者预约信息

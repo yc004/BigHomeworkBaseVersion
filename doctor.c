@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 inline void convert(const char* main, const char* sub, const char* title, Doctor* doctor) {
@@ -59,8 +60,8 @@ inline void convert(const char* main, const char* sub, const char* title, Doctor
 
 inline void readDoctor(FILE* fp, Dlist** doctor_list) {
     if (fp == NULL) {
-        printf("读取医生信息时发生错误！\n");
-        exit(0);
+        printf("医生信息文件打开失败\n");
+        exit(-1);
     }
 
     Dlist *tail = NULL, *head = NULL;
@@ -81,6 +82,7 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
         new->doctor.gender = gender;
         new->doctor.fee = fee;
         new->doctor.limit = limit;
+        printf("%s", name);
         convert(main, sub, title, &new->doctor);
         if (head == NULL) {
             head = tail = new;
