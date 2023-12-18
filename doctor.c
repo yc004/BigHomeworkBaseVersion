@@ -1,7 +1,3 @@
-//
-// Created by daniel on 2023/12/17.
-//
-
 #include "doctor.h"
 
 #include <stdio.h>
