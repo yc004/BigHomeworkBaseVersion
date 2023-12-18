@@ -7,13 +7,10 @@
 #include <conio.h>
 #include <stdbool.h>
 #include <stdlib.h>
+
+#include "accessUtils.h"
 #include "utils.h"
 
-enum access {
-    doctor,
-    administor,
-    patient
-};
 
 enum access access;
 
@@ -22,47 +19,58 @@ enum access access;
 
 char printMainMenu(void);
 
+void wait(void);
+
 int main() {
-    printf("\033[2J");
     init();
-    printf("请选择您的操作权限：\n");
-    access = getch() - '0';
+    enum access access = getAccess();
+    // access = getch() - '0';
 
     while (true) {
+        // 清空控制台
+        system("cls");
         const char action = printMainMenu();
         switch (action) {
             case '1':
                 printDocList();
+                wait();
                 break;
-            case 'q':
+            case '2':
+                break;
+            case 'q': // 键入 q 退出系统
                 // perror("err\n");
-                exit(0);
+                return 0;
             default:
-                printf("\033[1;31m输入有误， 请重新输入\n");
+                printf("输入有误， 请重新输入\n");
         }
     }
-
-
-    return 0;
 }
 
 // 用于打印主菜单
+
 char printMainMenu(void) {
     char prompt[][100] = {
         "-----欢迎使用医院预约挂号服务系统-------",
-        "1. 打印医生信息列表",
-        "2. 排序",
-        "3. 输出学生成绩信息",
-        "4. 增加新同学",
-        "5. 修改学生成绩信息",
-        "6. 删除学生",
-        "请选择(1-6) 输入q退出系统:"
+        "1. 输出医生信息列表",
+        "2. 输出患者预约信息",
+        "3. 添加医生信息",
+        "4. 添加患者预约信息",
+        "5. 修改医生信息",
+        "6. 修改患者预约信息",
+        "7. 查找医生",
+        "8. 查找患者",
+        "请选择(1-8) 输入q退出系统:"
     };
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < 10; ++i) {
         printf("%s", prompt[i]);
         printf("\n");
     }
 
     const char ch = getch();
     return ch;
+}
+
+void wait(void) {
+    printf("==========按任意继键续==============\n");
+    getch();
 }

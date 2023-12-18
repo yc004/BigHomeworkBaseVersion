@@ -25,7 +25,7 @@ void printDocList() {
     const Dlist* temp = doctor_list;
     while (temp != NULL) {
         Doctor doctor = temp->doctor;
-        printf("%5d, %5s %c\n", doctor.id, doctor.name, doctor.gender);
+        printf("%d\t%s\t%s\t%s\n", doctor.id, doctor.name, doctor.gender, mainDepartmentC[doctor.department.main]);
         temp = temp->next;
     }
     printf("--------------------\n");

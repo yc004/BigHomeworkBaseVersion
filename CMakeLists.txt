@@ -12,4 +12,6 @@ add_executable(BigHomeworkBaseVersion main.c
         utils.h
         doctor.c
         departmentO.c
+        accessUtils.c
+        accessUtils.h
 )

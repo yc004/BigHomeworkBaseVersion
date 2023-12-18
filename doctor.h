@@ -24,7 +24,7 @@ typedef struct doctor {
     Department department;
     enum title title;
     int fee;
-    char available[14];
+    char available[15];
     int limit;
 } Doctor;
 
