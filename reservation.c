@@ -4,6 +4,8 @@
 
 #include "reservation.h"
 
+#define MAX_STRING_LENGTH 100
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -45,23 +47,23 @@ static void convert(const char* name, const char* isEnsurance, const char* state
     }
 }
 
-void readPatient(FILE* fp, resList** res_list, Dlist* doc_list) {
+void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list) {
     resList *head = NULL, *tail = NULL;
-    int number;
-    char name[20];
-    char phone[12];
+    char number[MAX_STRING_LENGTH];
+    char name[MAX_STRING_LENGTH];
+    char phone[MAX_STRING_LENGTH];
     int year, month, day;
-    char main[20], sub[20];
-    char visitType[20];
-    char isEnsurance[20];
-    char docName[20];
-    char state[20];
+    char main[20], sub[MAX_STRING_LENGTH];
+    char visitType[MAX_STRING_LENGTH];
+    char isEnsurance[MAX_STRING_LENGTH];
+    char docName[MAX_STRING_LENGTH];
+    char state[MAX_STRING_LENGTH];
 
 
-    while (fscanf(fp, "%d %s %s %d/%d/%d %s %s %s %s %s %s", &number, name, phone, &year, &month, &day, main, sub,
+    while (fscanf(fp, "%s %s %s %d/%d/%d %s %s %s %s %s %s", number, name, phone, &year, &month, &day, main, sub,
                   visitType, isEnsurance, docName, state) != EOF) {
         resList* new = malloc(sizeof(resList));
-        new->data.number = number;
+        strcpy(new->data.number, number);
         new->data.intend_date.year = year;
         new->data.intend_date.month = month;
         new->data.intend_date.day = day;

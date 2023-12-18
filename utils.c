@@ -44,10 +44,10 @@ void printDocList() {
 void printPatientList() {
     printf("-----------------------------------------------\n");
     const resList* temp = res_list;
-    printf("预约编码\t姓名\t电话\t日期\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n");
+    printf("预约编码\t姓名\t电话\t\t日期\t\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n");
     while (temp != NULL) {
         reservation res = temp->data;
-        printf("%d\t%s\t%s\t%d/%d/%d\t%s\t%s\t%s\t%s\t%s\t%s\n", res.number, res.name, res.phone, res.intend_date.year,
+        printf("%s\t%s\t%s\t%d/%d/%d\t%s\t%s\t%s\t\t%s\t%s\t%s\n", res.number, res.name, res.phone, res.intend_date.year,
                res.intend_date.month,
                res.intend_date.day, mainDepartmentC[res.doctor.department.main],
                getSubDepartment(res.doctor.department), visit_t_c[res.visitType], ensurance[res.isEnsurance],

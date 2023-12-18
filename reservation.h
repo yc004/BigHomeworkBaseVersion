@@ -23,8 +23,8 @@
 
 // 患者预约信息
 typedef struct Res {
-    int number;
-    char name[5];
+    char number[20];
+    char name[30];
     char phone[12];
     date intend_date;
     int visitType;
@@ -46,6 +46,6 @@ const static char ensurance[][30] = {"否", "是"};
 
 const static char has_reservation[][30] = {"已取消", "已预约"};
 
-extern void readPatient(FILE* fp, resList** res_list, Dlist* doc_list);
+extern void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list);
 
 #endif //PATIENT_H

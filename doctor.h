@@ -2,6 +2,8 @@
 #define DOCTOR_H
 
 #include <stdio.h>
+#define MAX_STRING_LENGTH 100
+
 
 #include "departmentO.h"
 
@@ -19,12 +21,12 @@ const static char titleC[][20] = {"医师", "主治医师", "副主任医师", "
 // 医生信息
 typedef struct doctor {
     int id;
-    char name[10];
-    char gender[5];
+    char name[MAX_STRING_LENGTH];
+    char gender[MAX_STRING_LENGTH];
     Department department;
     enum title title;
     int fee;
-    char available[15];
+    char available[MAX_STRING_LENGTH];
     int limit;
 } Doctor;
 

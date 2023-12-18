@@ -65,7 +65,7 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
     int id;
     char name[10];
     char gender[5];
-    char main[15];
+    char main[20];
     char sub[20];
     char title[30];
     int fee;
@@ -79,7 +79,8 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
         strcpy(new->doctor.gender, gender);
         new->doctor.fee = fee;
         new->doctor.limit = limit;
-        // printf("%s\n", main);
+        strcpy(new->doctor.available, available);
+        // printf("%s\n", available);
         // printf("%llu\n", strlen(name));
         convert(main, sub, title, &new->doctor);
         if (head == NULL) {
