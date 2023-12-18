@@ -15,7 +15,7 @@ enum access {
     patient
 };
 
-int access;
+enum access access;
 
 
 // 打印初始主页面
@@ -24,7 +24,8 @@ char printMainMenu(void);
 
 int main() {
     init();
-    scanf("请选择您的操作权限：\n", &access);
+    printf("请选择您的操作权限：\n");
+    access = getch() - '0';
 
     while (true) {
         const char action = printMainMenu();

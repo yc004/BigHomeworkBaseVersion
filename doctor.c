@@ -45,7 +45,7 @@ inline void convert(const char* main, const char* sub, const char* title, Doctor
                     }
                     break;
                 default:
-                    printf("Read error");
+                    printf("Read error\n");
                     exit(0);
             }
         }
@@ -66,23 +66,22 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
 
     Dlist *tail = NULL, *head = NULL;
     int id;
-    char name[5];
-    char gender;
+    char name[10];
+    char gender[5];
     char main[10];
     char sub[10];
     char title[20];
     int fee;
     char available[14];
     int limit;
-    while (fscanf(fp, "%d %s %c %s %s %s %d %s %d", &id, name, &gender, main, sub, title, &fee, available,
-                  &limit) != EOF
-    ) {
+    while (fscanf(fp, "%d %s %s %s %s %s %d %s %d", &id, name, gender, main, sub, title, &fee, available,
+                  &limit) != EOF) {
         Dlist* new = malloc(sizeof(Dlist));
         new->doctor.id = id;
         new->doctor.gender = gender;
         new->doctor.fee = fee;
         new->doctor.limit = limit;
-        printf("%s", name);
+        printf("%s\n", name);
         convert(main, sub, title, &new->doctor);
         if (head == NULL) {
             head = tail = new;
@@ -93,12 +92,13 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
                 tail = new;
             }
             else {
-                printf("内存分配失败");
+                printf("内存分配失败\n");
                 exit(0);
             }
         }
     }
-    printf("医生信息读取完成");
+    tail->next = NULL;
+    printf("医生信息读取完成\n");
     // 关闭文件
     fclose(fp);
     // 让 doctor_list 指向链表的头

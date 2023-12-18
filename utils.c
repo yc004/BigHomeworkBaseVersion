@@ -16,8 +16,8 @@ extern void init() {
     readDoctor(doctorFp, &doctor_list);
 
     // 读取患者预约信息
-    FILE* patientFp = fopen("reservationdata.txt", "r");
-    readPatient(patientFp);
+    // FILE* patientFp = fopen("reservationdata.txt", "r");
+    // readPatient(patientFp);
 }
 
 // 打印医生信息列表
@@ -28,5 +28,5 @@ extern void printDocList() {
         printf("%5d, %5s %c\n", doctor.id, doctor.name, doctor.gender);
         temp = temp->next;
     }
-    printf("--------------------");
+    printf("--------------------\n");
 }
