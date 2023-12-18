@@ -96,8 +96,10 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
                 exit(0);
             }
         }
+        printf("%s", new->doctor.name);
+        new->next = NULL;
     }
-    tail->next = NULL;
+    // tail->next = NULL;
     printf("医生信息读取完成\n");
     // 关闭文件
     fclose(fp);

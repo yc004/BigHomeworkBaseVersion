@@ -33,10 +33,11 @@ int main() {
             case '1':
                 printDocList();
                 break;
-            default:
-                printf("err");
+            case 'q':
+                // perror("err\n");
                 exit(0);
-
+            default:
+                printf("输入有误， 请重新输入\n");
         }
     }
 
@@ -54,15 +55,13 @@ char printMainMenu(void) {
         "4. 增加新同学",
         "5. 修改学生成绩信息",
         "6. 删除学生",
-        "0. 退出",
-        "请选择(0-6):"
+        "请选择(1-6) 输入q退出系统:"
     };
-    for (int i = 0; i < 9; ++i) {
+    for (int i = 0; i < 8; ++i) {
         printf("%s", prompt[i]);
         printf("\n");
     }
 
     const char ch = getch();
-
     return ch;
 }

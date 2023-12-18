@@ -5,9 +5,9 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-inline void init();
+extern void init();
 
-inline void printDocList();
+extern void printDocList();
 
 
 #endif //UTILS_H

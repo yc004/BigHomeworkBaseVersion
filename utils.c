@@ -7,7 +7,7 @@ Dlist* doctor_list = NULL;
 
 
 // 初始化系统
-extern void init() {
+void init() {
     // 用于解决输出乱码问题
     system("chcp 65001");
 
@@ -21,7 +21,7 @@ extern void init() {
 }
 
 // 打印医生信息列表
-extern void printDocList() {
+void printDocList() {
     const Dlist* temp = doctor_list;
     while (temp != NULL) {
         Doctor doctor = temp->doctor;
