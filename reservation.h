@@ -23,15 +23,14 @@
 
 // 患者预约信息
 typedef struct Res {
-    int id;
+    int number;
     char name[5];
     char phone[12];
     date intend_date;
-    Department department;
     int visitType;
     int isEnsurance;
     Doctor doctor;
-    int state;
+    int hasRes;
 } reservation;
 
 //  患者预约信息链表
@@ -40,10 +39,7 @@ typedef struct listNode {
     struct listNode* next;
 } resList;
 
-inline extern void readPatient(FILE* fp) {
-    resList *head = NULL, *tail = NULL, *new;
 
-    while (fscanf(fp, "%s %s %s %d/%d/%d %s %s %s %s %s %s")) {
-    }
-}
+extern void readPatient(FILE* fp, resList** res_list);
+
 #endif //PATIENT_H

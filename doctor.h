@@ -34,13 +34,11 @@ typedef struct doctorList {
     struct doctorList* next;
 } Dlist;
 
-// 将字符串类型的门诊科室转换为对应的枚举 将职称的字符串转换为枚举
-extern void convert(const char* main, const char* sub, const char* title, Doctor* doctor);
 
 extern void readDoctor(FILE* fp, Dlist** doctor_list);
 
 extern char* getSubDepartment(Department department);
 
-extern char* getTitle(enum title);
+extern void connect(char* name, Doctor** doctor, Dlist doctor_list);
 
 #endif //DOCTOR_H

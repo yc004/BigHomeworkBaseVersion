@@ -5,14 +5,14 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(BigHomeworkBaseVersion main.c
         departmentO.h
-        doctor.h
-        reservation.h
-        date.h
-        utils.c
-        utils.h
-        doctor.c
         departmentO.c
-        accessUtils.c
-        accessUtils.h
+        doctor.h
+        doctor.c
+        reservation.h
         reservation.c
+        utils.h
+        utils.c
+        accessUtils.h
+        accessUtils.c
+        date.h
 )

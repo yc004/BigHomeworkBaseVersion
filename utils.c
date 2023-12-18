@@ -4,6 +4,7 @@
 #include "reservation.h"
 
 Dlist* doctor_list = NULL;
+resList* res_list = NULL;
 
 
 // 初始化系统
@@ -18,8 +19,8 @@ void init() {
     readDoctor(doctorFp, &doctor_list);
 
     // 读取患者预约信息
-    // FILE* patientFp = fopen("reservationdata.txt", "r");
-    // readPatient(patientFp);
+    FILE* patientFp = fopen("reservationdata.txt", "r");
+    readPatient(patientFp, &res_list);
 
     printf("\033[32m\033[1m初始化完成\n");
     printf("\033[0m-------------------------------------------------\n");
