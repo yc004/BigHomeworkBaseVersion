@@ -78,10 +78,12 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
                   &limit) != EOF) {
         Dlist* new = malloc(sizeof(Dlist));
         new->doctor.id = id;
-        new->doctor.gender = gender;
+        strcpy(new->doctor.name, name);
+        strcpy(new->doctor.gender, gender);
         new->doctor.fee = fee;
         new->doctor.limit = limit;
-        printf("%s\n", name);
+        // printf("%s\n", name);
+        // printf("%llu\n", strlen(name));
         convert(main, sub, title, &new->doctor);
         if (head == NULL) {
             head = tail = new;
@@ -96,7 +98,7 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
                 exit(0);
             }
         }
-        printf("%s", new->doctor.name);
+        printf("%s\n", new->doctor.name);
         new->next = NULL;
     }
     // tail->next = NULL;

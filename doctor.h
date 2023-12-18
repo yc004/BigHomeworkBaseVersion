@@ -20,7 +20,7 @@ const static char titleC[][20] = {"医师", "主治医师", "副主任医师", "
 typedef struct doctor {
     int id;
     char name[10];
-    char gender;
+    char gender[5];
     Department department;
     enum title title;
     int fee;

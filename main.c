@@ -23,6 +23,7 @@ enum access access;
 char printMainMenu(void);
 
 int main() {
+    printf("\033[2J");
     init();
     printf("请选择您的操作权限：\n");
     access = getch() - '0';
@@ -37,7 +38,7 @@ int main() {
                 // perror("err\n");
                 exit(0);
             default:
-                printf("输入有误， 请重新输入\n");
+                printf("\033[1;31m输入有误， 请重新输入\n");
         }
     }
 
