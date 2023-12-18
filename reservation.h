@@ -40,6 +40,12 @@ typedef struct listNode {
 } resList;
 
 
-extern void readPatient(FILE* fp, resList** res_list);
+const static char visit_t_c[][30] = {"初诊", "复诊"};
+
+const static char ensurance[][30] = {"否", "是"};
+
+const static char has_reservation[][30] = {"已取消", "已预约"};
+
+extern void readPatient(FILE* fp, resList** res_list, Dlist* doc_list);
 
 #endif //PATIENT_H

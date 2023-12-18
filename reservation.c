@@ -8,9 +8,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-void convert(char* name, const char* isEnsurance, const char* state, char* visitType, reservation* reservation) {
-    Doctor* docptr = &reservation->doctor;
-    connect(name, &docptr, );
+static void convert(const char* name, const char* isEnsurance, const char* state, const char* visitType,
+                    reservation* reservation,
+                    const Dlist* doc_list) {
+    // connect(name, &docptr, );
 
     if (strcmp(isEnsurance, "是") == 0) {
         reservation->isEnsurance = 1;
@@ -27,14 +28,24 @@ void convert(char* name, const char* isEnsurance, const char* state, char* visit
     }
 
     if (strcmp(visitType, "初诊") == 0) {
-        reservation->visitType = 2;
+        reservation->visitType = 0;
     }
     else {
         reservation->visitType = 1;
     }
+
+    const Dlist* tmp = doc_list;
+    while (tmp != NULL) {
+        if (strcmp(name, tmp->doctor.name) == 0) {
+            reservation->doctor = tmp->doctor;
+            return;
+        }
+
+        tmp = tmp->next;
+    }
 }
 
-void readPatient(FILE* fp, resList** res_list) {
+void readPatient(FILE* fp, resList** res_list, Dlist* doc_list) {
     resList *head = NULL, *tail = NULL;
     int number;
     char name[20];
@@ -56,7 +67,7 @@ void readPatient(FILE* fp, resList** res_list) {
         new->data.intend_date.day = day;
         strcpy(new->data.name, name);
         strcpy(new->data.phone, phone);
-        convert(docName, isEnsurance, state, visitType, &new->data);
+        convert(docName, isEnsurance, state, visitType, &new->data, doc_list);
 
         if (head == NULL) {
             head = tail = new;
@@ -77,6 +88,7 @@ void readPatient(FILE* fp, resList** res_list) {
         tail->next = NULL;
     }
 
+    printf("患者预约信息初始化完成\n");
     fclose(fp);
     *res_list = head;
 }

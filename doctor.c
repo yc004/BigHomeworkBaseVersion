@@ -4,14 +4,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-// 用于将患者所存储的医生信息和已经存储的医生信息建立连接
-inline void connect(char* name, Doctor** doctor, Dlist doctor_list) {
-
-}
-
 
 // 将字符串类型的门诊科室转换为对应的枚举 将职称的字符串转换为枚举
-inline void convert(const char* main, const char* sub, const char* title, Doctor* doctor) {
+static void convert(const char* main, const char* sub, const char* title, Doctor* doctor) {
     for (int i = 0; i < sizeof(enum mainDepartment); ++i) {
         if (strcmp(main, mainDepartmentC[i]) == 0) {
             doctor->department.main = i;

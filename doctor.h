@@ -39,6 +39,5 @@ extern void readDoctor(FILE* fp, Dlist** doctor_list);
 
 extern char* getSubDepartment(Department department);
 
-extern void connect(char* name, Doctor** doctor, Dlist doctor_list);
 
 #endif //DOCTOR_H

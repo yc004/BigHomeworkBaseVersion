@@ -9,5 +9,7 @@ extern void init();
 
 extern void printDocList();
 
+extern void printPatientList();
+
 
 #endif //UTILS_H

@@ -36,6 +36,10 @@ int main() {
                 printDocList();
                 wait();
                 break;
+            case '2':
+                printPatientList();
+                wait();
+                break;
             case 'q': // 键入 q 退出系统
                 // perror("err\n");
                 return 0;

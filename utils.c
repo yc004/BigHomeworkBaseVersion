@@ -19,8 +19,8 @@ void init() {
     readDoctor(doctorFp, &doctor_list);
 
     // 读取患者预约信息
-    FILE* patientFp = fopen("reservationdata.txt", "r");
-    readPatient(patientFp, &res_list);
+    FILE* patientFp = fopen("../src/reservationdata.txt", "r");
+    readPatient(patientFp, &res_list, doctor_list);
 
     printf("\033[32m\033[1m初始化完成\n");
     printf("\033[0m-------------------------------------------------\n");
@@ -36,6 +36,22 @@ void printDocList() {
         printf("%d\t%s\t%s\t%s\t%s\t%s\t%d\t%d\n", doctor.id, doctor.name, doctor.gender,
                mainDepartmentC[doctor.department.main],
                getSubDepartment(doctor.department), titleC[doctor.title], doctor.fee, doctor.limit);
+        temp = temp->next;
+    }
+    printf("-----------------------------------------------\n");
+}
+
+void printPatientList() {
+    printf("-----------------------------------------------\n");
+    const resList* temp = res_list;
+    printf("预约编码\t姓名\t电话\t日期\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n");
+    while (temp != NULL) {
+        reservation res = temp->data;
+        printf("%d\t%s\t%s\t%d/%d/%d\t%s\t%s\t%s\t%s\t%s\t%s\n", res.number, res.name, res.phone, res.intend_date.year,
+               res.intend_date.month,
+               res.intend_date.day, mainDepartmentC[res.doctor.department.main],
+               getSubDepartment(res.doctor.department), visit_t_c[res.visitType], ensurance[res.isEnsurance],
+               res.doctor.name, has_reservation[res.hasRes]);
         temp = temp->next;
     }
     printf("-----------------------------------------------\n");
