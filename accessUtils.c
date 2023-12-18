@@ -17,7 +17,7 @@ const struct user adminU = {"admin", "123456"};
 const struct user doctorU = {"doctor", "654321"};
 const struct user patientU = {"patient", "56789"};
 
-// TODO: 让用户输入账户和密码 根据不同的账户返回不同的权限
+// 让用户输入账户和密码 根据不同的账户返回不同的权限
 enum access getAccess() {
     while (true) {
         printf("请输入您的用户名：\n");
