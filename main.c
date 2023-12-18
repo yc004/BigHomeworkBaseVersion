@@ -25,6 +25,7 @@ int main() {
     init();
     enum access access = getAccess();
     // access = getch() - '0';
+    printf("\033[0m");
 
     while (true) {
         // 清空控制台

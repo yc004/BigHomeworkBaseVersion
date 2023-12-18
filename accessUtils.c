@@ -20,7 +20,7 @@ const struct user patientU = {"patient", "56789"};
 // 让用户输入账户和密码 根据不同的账户返回不同的权限
 enum access getAccess() {
     while (true) {
-        printf("请输入您的用户名：\n");
+        printf("\033[5m请输入您的用户名：\n");
         fgets(username, 30, stdin);
         printf("请输入您的密码：\n");
         int i = 0;
