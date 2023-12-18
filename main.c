@@ -35,13 +35,13 @@ int main() {
                 printDocList();
                 wait();
                 break;
-            case '2':
-                break;
             case 'q': // 键入 q 退出系统
                 // perror("err\n");
                 return 0;
             default:
-                printf("输入有误， 请重新输入\n");
+                // printf("输入有误， 请重新输入\n");
+                printf("其他功能正在开发中...\n");
+                wait();
         }
     }
 }
@@ -71,6 +71,6 @@ char printMainMenu(void) {
 }
 
 void wait(void) {
-    printf("==========按任意继键续==============\n");
+    printf("=============按任意键继续==============\n");
     getch();
 }

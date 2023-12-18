@@ -39,4 +39,8 @@ extern void convert(const char* main, const char* sub, const char* title, Doctor
 
 extern void readDoctor(FILE* fp, Dlist** doctor_list);
 
+extern char* getSubDepartment(Department department);
+
+extern char* getTitle(enum title);
+
 #endif //DOCTOR_H

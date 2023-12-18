@@ -66,9 +66,9 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
     char gender[5];
     char main[15];
     char sub[20];
-    char title[20];
+    char title[30];
     int fee;
-    char available[14];
+    char available[15];
     int limit;
     while (fscanf(fp, "%d %s %s %s %s %s %d %s %d", &id, name, gender, main, sub, title, &fee, available,
                   &limit) != EOF) {
@@ -103,4 +103,21 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
     fclose(fp);
     // 让 doctor_list 指向链表的头
     *doctor_list = head;
+}
+
+inline char* getSubDepartment(Department department) {
+    if (department.main == Inner) {
+        return IMDC[department.sub.imd];
+    }
+    if (department.main == Surgery) {
+        return SDC[department.sub.sd];
+    }
+    if (department.main == PediatricM) {
+        return PDC[department.sub.pd];
+    }
+    if (department.main == ENT) {
+        return EDC[department.sub.ed];
+    }
+
+    return NULL;
 }

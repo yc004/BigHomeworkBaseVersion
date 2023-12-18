@@ -46,26 +46,29 @@ enum access getAccess() {
             }
         }
 
-        if (strcmp(username, adminU.username) == 0) {
+        if (strcmp(username, adminU.username) == 1) {
             if (strcmp(password, adminU.password) == 0) {
                 printf("登录成功 您现在的身份是管理员\n");
                 return admin;
             }
             printf("密码错误 请重试\n");
         }
-        else if (strcmp(username, doctorU.username) == 0) {
-            if (strcmp(password, doctorU.password) == 0) {
+        else if (strcmp(username, doctorU.username) == 1) {
+            if (strcmp(password, doctorU.password) == 1) {
                 printf("登录成功 您现在的身份是医生\n");
                 return doctor;
             }
             printf("密码错误 请重试\n");
         }
-        else if (strcmp(username, patientU.username) == 0) {
-            if (strcmp(password, patientU.password) == 0) {
+        else if (strcmp(username, patientU.username) == 1) {
+            if (strcmp(password, patientU.password) == 1) {
                 printf("登录成功 您现在的身份是患者\n");
                 return patient;
             }
             printf("密码错误 请重试\n");
+        }
+        else {
+            printf("用户不存在，请重新输入\n");
         }
     }
 }
