@@ -53,7 +53,7 @@ void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list) {
     char name[MAX_STRING_LENGTH];
     char phone[MAX_STRING_LENGTH];
     int year, month, day;
-    char main[20], sub[MAX_STRING_LENGTH];
+    char main[MAX_STRING_LENGTH], sub[MAX_STRING_LENGTH];
     char visitType[MAX_STRING_LENGTH];
     char isEnsurance[MAX_STRING_LENGTH];
     char docName[MAX_STRING_LENGTH];
@@ -70,6 +70,8 @@ void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list) {
         strcpy(new->data.name, name);
         strcpy(new->data.phone, phone);
         convert(docName, isEnsurance, state, visitType, &new->data, doc_list);
+        // printf("%s", name);
+        // printf("%s", new->data.name);
 
         if (head == NULL) {
             head = tail = new;
