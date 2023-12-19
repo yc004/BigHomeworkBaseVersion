@@ -127,12 +127,16 @@ inline char* getSubDepartment(Department department) {
 }
 
 // 按照医生姓名排序
-inline int compareByDocName(void* a_p, void* b_p) {
-    return 0;
+inline int compareByDocName(const void* a_p, const void* b_p) {
+    const Dlist* a = a_p;
+    const Dlist* b = b_p;
+    return strcmp(a->doctor.name, b->doctor.name);
 }
 
 // 按照医生编号排序
-inline int compareByDocId(void* a_p, void* b_p) {
-    return a_p->doctor.id > b_p->doctor.id;
+inline int compareByDocId(const void* a_p, const void* b_p) {
+    const Dlist* a = a_p;
+    const Dlist* b = b_p;
+    return a > b;
 }
 

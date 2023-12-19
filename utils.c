@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 #include "doctor.h"
 #include "reservation.h"
 
@@ -120,6 +121,28 @@ static void sort(void* list, const int type, int (*compare)(void* a_p, void* b_p
     }
 }
 
+
+int printSliceMenu(int type) {
+    printf("-----------------------------------------------\n");
+    char options[][MAX_STRING_LENGTH] = {
+        "请选择列表的排序方式：",
+        "1.按编号",
+        "2.按姓名",
+        "3.按可预约人数"
+    };
+
+    for (int i = 0; i < 4; ++i) {
+        printf("%s", options[i]);
+        printf("\n");
+    }
+
+
+    printf("-----------------------------------------------\n");
+    char ch = getch();
+    return 0;
+}
+
+
 // 打印医生信息列表
 void printDocList(const int sortType) {
     /*
@@ -129,13 +152,14 @@ void printDocList(const int sortType) {
      *  1 代表按照编号排序
      */
 
-    const Dlist* temp = doctor_list;
+    Dlist* temp = doctor_list;
     printf("-----------------------------------------------\n");
     printf("编号\t姓名\t性别\t科室\t下设科室\t职称\t\t挂号费\t可预约人数\n");
     if (sortType == 1) {
         sort(temp, 0, compareByDocId);
     }
     else if (sortType == 0) {
+        sort(temp, 1, compareByDocName);
     }
     while (temp != NULL) {
         Doctor doctor = temp->doctor;
