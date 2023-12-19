@@ -29,8 +29,6 @@ void init() {
     printf("\033[0m-------------------------------------------------\n");
 }
 
-
-
 // 用于获取链表长度
 static int getLength(const void* list, const int type) {
     int length = 0;
@@ -142,7 +140,7 @@ static int printSliceMenuDoc() {
 }
 
 // 输出患者预约列表的副菜单
-int printSliceMenuRes() {
+static int printSliceMenuRes() {
     system("cls");
     printf("-----------------------------------------------\n");
     char options[][MAX_STRING_LENGTH] = {
@@ -206,7 +204,7 @@ void printDocList() {
 void printPatientList() {
     printf("-----------------------------------------------\n");
     const resList* temp = res_list;
-    printf("预约编码\t姓名\t电话\t\t日期\t\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n");
+    printf("预约编码\t姓名\t电话\t\t日期\t\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n"); // 列表头
     while (temp != NULL) {
         reservation res = temp->data;
         printf("%s\t%s\t%s\t%d/%d/%d\t%s\t%s\t%s\t\t%s\t%s\t%s\n", res.number, res.name, res.phone,

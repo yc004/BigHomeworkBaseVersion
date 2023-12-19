@@ -2,6 +2,10 @@
  * 该系统具有读取、查询、排序、修改、新增、删除、统计、保存、输出等功能。
  */
 
+/*
+ * TODO: 目前用户登录功能只实现了输入固定的三个账户和密码登录 且没有对相应的权限做出不同的操作 后续能不能完成就看你的了小伙子！
+ */
+
 
 #include <stdio.h>
 #include <conio.h>
@@ -11,11 +15,10 @@
 #include "accessUtils.h"
 #include "utils.h"
 
-
+// 用户权限
 enum access access;
 
 
-// 打印初始主页面
 
 char printMainMenu(void);
 
