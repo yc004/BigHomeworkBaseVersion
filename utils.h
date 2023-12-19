@@ -7,7 +7,7 @@
 
 extern void init();
 
-extern void printDocList(int sortType);
+extern void printDocList();
 
 extern void printPatientList();
 

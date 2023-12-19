@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+#include <stdbool.h>
+
 #include "doctor.h"
 #include "reservation.h"
 
@@ -27,6 +29,7 @@ void init() {
     printf("\033[0m-------------------------------------------------\n");
 }
 
+// 输出患者预约列表
 void printPatientList() {
     printf("-----------------------------------------------\n");
     const resList* temp = res_list;
@@ -45,7 +48,6 @@ void printPatientList() {
 }
 
 // 用于获取链表长度
-
 static int getLength(const void* list, const int type) {
     int length = 0;
     if (type == 0) {
@@ -65,6 +67,7 @@ static int getLength(const void* list, const int type) {
     return length;
 }
 
+// 为链表排序
 static void sort(void* list, const int type, int (*compare)(void* a_p, void* b_p)) {
     // 如果链表为空，直接返回
     if (list == NULL) {
@@ -122,35 +125,79 @@ static void sort(void* list, const int type, int (*compare)(void* a_p, void* b_p
 }
 
 
-int printSliceMenu(int type) {
+// 输出医生列表的副菜单
+static int printSliceMenuDoc() {
+    system("cls");
     printf("-----------------------------------------------\n");
     char options[][MAX_STRING_LENGTH] = {
         "请选择列表的排序方式：",
         "1.按编号",
         "2.按姓名",
-        "3.按可预约人数"
+        "3.按可预约人数",
+        "4.按诊室",
     };
 
-    for (int i = 0; i < 4; ++i) {
+    for (int i = 0; i < 5; ++i) {
         printf("%s", options[i]);
         printf("\n");
     }
 
 
     printf("-----------------------------------------------\n");
-    char ch = getch();
-    return 0;
+    while (true) {
+        const char ch = getch();
+        switch (ch) {
+            case '1':
+            case '2':
+            case '3':
+                return ch - '0';
+            default:
+                printf("输入有误请重新输入\n");
+        }
+    }
+}
+
+// 输出患者预约列表的副菜单
+int printSliceMenuRes() {
+    system("cls");
+    printf("-----------------------------------------------\n");
+    char options[][MAX_STRING_LENGTH] = {
+        "请选择列表的排序方式：",
+        "1.按预约编号",
+        "2.按患者姓名",
+        "3.按就诊日期",
+        "4.按就诊类型",
+        "5.按"
+    };
+
+    for (int i = 0; i < 6; ++i) {
+        printf("%s", options[i]);
+        printf("\n");
+    }
+
+
+    printf("-----------------------------------------------\n");
+    while (true) {
+        const char ch = getch();
+        switch (ch) {
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+                return ch - '0';
+            default:
+                printf("输入有误请重新输入\n");
+        }
+    }
 }
 
 
 // 打印医生信息列表
-void printDocList(const int sortType) {
-    /*
-     * sortTtpe: 用于判断排序依据
-     *  初始默认按照编号排序
-     *  0 代表按照姓名排序
-     *  1 代表按照编号排序
-     */
+void printDocList() {
+    const int sortType = printSliceMenuDoc();
+    system("cls");
+
 
     Dlist* temp = doctor_list;
     printf("-----------------------------------------------\n");
