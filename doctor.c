@@ -125,3 +125,14 @@ inline char* getSubDepartment(Department department) {
 
     return NULL;
 }
+
+// 按照医生姓名排序
+inline int compareByDocName(void* a_p, void* b_p) {
+    return 0;
+}
+
+// 按照医生编号排序
+inline int compareByDocId(void* a_p, void* b_p) {
+    return a_p->doctor.id > b_p->doctor.id;
+}
+

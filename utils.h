@@ -7,9 +7,10 @@
 
 extern void init();
 
-extern void printDocList();
+extern void printDocList(int sortType);
 
 extern void printPatientList();
+
 
 
 #endif //UTILS_H

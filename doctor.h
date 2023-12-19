@@ -41,5 +41,9 @@ extern void readDoctor(FILE* fp, Dlist** doctor_list);
 
 extern char* getSubDepartment(Department department);
 
+extern int compareByDocName(void* a_p, void* b_p);
+
+extern int compareByDocId(void* a_p, void* b_p);
+
 
 #endif //DOCTOR_H

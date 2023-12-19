@@ -35,7 +35,7 @@ int main() {
 
         switch (action) {
             case '1':
-                printDocList();
+                printDocList(1);
                 wait();
                 break;
             case '2':
