@@ -31,6 +31,8 @@ int main() {
         // 清空控制台
         system("cls");
         const char action = printMainMenu();
+        printf("%c\n", action);
+
         switch (action) {
             case '1':
                 printDocList();
