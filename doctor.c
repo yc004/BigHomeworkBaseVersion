@@ -55,7 +55,7 @@ static void convert(const char* main, const char* sub, const char* title, Doctor
     }
 }
 
-inline void readDoctor(FILE* fp, Dlist** doctor_list) {
+void readDoctor(FILE* fp, Dlist** doctor_list) {
     if (fp == NULL) {
         printf("医生信息文件打开失败\n");
         exit(-1);
@@ -109,7 +109,7 @@ inline void readDoctor(FILE* fp, Dlist** doctor_list) {
     *doctor_list = head;
 }
 
-inline char* getSubDepartment(Department department) {
+char* getSubDepartment(const Department department) {
     if (department.main == Inner) {
         return IMDC[department.sub.imd];
     }
@@ -127,16 +127,21 @@ inline char* getSubDepartment(Department department) {
 }
 
 // 按照医生姓名排序
-inline int compareByDocName(const void* a_p, const void* b_p) {
+int compareByDocName(const void* a_p, const void* b_p) {
     const Dlist* a = a_p;
     const Dlist* b = b_p;
     return strcmp(a->doctor.name, b->doctor.name);
 }
 
 // 按照医生编号排序
-inline int compareByDocId(const void* a_p, const void* b_p) {
+int compareByDocId(const void* a_p, const void* b_p) {
     const Dlist* a = a_p;
     const Dlist* b = b_p;
     return a > b;
+}
+
+// 将医生信息写入文件进行保存
+void writeDoctor(FILE* fp, Dlist* doctor_list) {
+
 }
 

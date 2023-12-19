@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// 将患者的预约信息转换为对应的枚举 以便后续操作
 static void convert(const char* name, const char* isEnsurance, const char* state, const char* visitType,
                     reservation* reservation,
                     const Dlist* doc_list) {
@@ -47,6 +48,7 @@ static void convert(const char* name, const char* isEnsurance, const char* state
     }
 }
 
+// 读取患者预约信息文件
 void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list) {
     resList *head = NULL, *tail = NULL;
     char number[MAX_STRING_LENGTH];
@@ -95,4 +97,9 @@ void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list) {
     printf("患者预约信息初始化完成\n");
     fclose(fp);
     *res_list = head;
+}
+
+// 将患者信息写入文件进行保存
+void writePatient(FILE* fp, resList* res_list) {
+
 }

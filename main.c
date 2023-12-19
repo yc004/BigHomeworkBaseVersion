@@ -30,9 +30,12 @@ int main() {
     while (true) {
         // 清空控制台
         system("cls");
+
+        // 输出主菜单 获取相应的结果
         const char action = printMainMenu();
         printf("%c\n", action);
 
+        // 对不同的结果匹配相应的行为
         switch (action) {
             case '1':
                 printDocList();
@@ -54,7 +57,6 @@ int main() {
 }
 
 // 用于打印主菜单
-
 char printMainMenu(void) {
     char prompt[][100] = {
         "-----欢迎使用医院预约挂号服务系统-------",
@@ -77,6 +79,7 @@ char printMainMenu(void) {
     return ch;
 }
 
+// 用于在完成输出后等待用户确认 然后按下任意键清空控制台回到主菜单
 void wait(void) {
     printf("=============按任意键继续==============\n");
     getch();

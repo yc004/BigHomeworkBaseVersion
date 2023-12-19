@@ -29,23 +29,7 @@ void init() {
     printf("\033[0m-------------------------------------------------\n");
 }
 
-// 输出患者预约列表
-void printPatientList() {
-    printf("-----------------------------------------------\n");
-    const resList* temp = res_list;
-    printf("预约编码\t姓名\t电话\t\t日期\t\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n");
-    while (temp != NULL) {
-        reservation res = temp->data;
-        printf("%s\t%s\t%s\t%d/%d/%d\t%s\t%s\t%s\t\t%s\t%s\t%s\n", res.number, res.name, res.phone,
-               res.intend_date.year,
-               res.intend_date.month,
-               res.intend_date.day, mainDepartmentC[res.doctor.department.main],
-               getSubDepartment(res.doctor.department), visit_t_c[res.visitType], ensurance[res.isEnsurance],
-               res.doctor.name, has_reservation[res.hasRes]);
-        temp = temp->next;
-    }
-    printf("-----------------------------------------------\n");
-}
+
 
 // 用于获取链表长度
 static int getLength(const void* list, const int type) {
@@ -213,6 +197,24 @@ void printDocList() {
         printf("%d\t%s\t%s\t%s\t%s\t%s\t%d\t%d\n", doctor.id, doctor.name, doctor.gender,
                mainDepartmentC[doctor.department.main],
                getSubDepartment(doctor.department), titleC[doctor.title], doctor.fee, doctor.limit);
+        temp = temp->next;
+    }
+    printf("-----------------------------------------------\n");
+}
+
+// 输出患者预约列表
+void printPatientList() {
+    printf("-----------------------------------------------\n");
+    const resList* temp = res_list;
+    printf("预约编码\t姓名\t电话\t\t日期\t\t科室\t下设科室\t就诊类型\t医保\t医师\t预约状态\n");
+    while (temp != NULL) {
+        reservation res = temp->data;
+        printf("%s\t%s\t%s\t%d/%d/%d\t%s\t%s\t%s\t\t%s\t%s\t%s\n", res.number, res.name, res.phone,
+               res.intend_date.year,
+               res.intend_date.month,
+               res.intend_date.day, mainDepartmentC[res.doctor.department.main],
+               getSubDepartment(res.doctor.department), visit_t_c[res.visitType], ensurance[res.isEnsurance],
+               res.doctor.name, has_reservation[res.hasRes]);
         temp = temp->next;
     }
     printf("-----------------------------------------------\n");

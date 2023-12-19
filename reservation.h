@@ -48,4 +48,6 @@ const static char has_reservation[][30] = {"已取消", "已预约"};
 
 extern void readPatient(FILE* fp, resList** res_list, const Dlist* doc_list);
 
+extern void writePatient(FILE* fp, resList* res_list);
+
 #endif //PATIENT_H

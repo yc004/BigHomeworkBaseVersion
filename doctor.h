@@ -4,7 +4,6 @@
 #include <stdio.h>
 #define MAX_STRING_LENGTH 100
 
-
 #include "departmentO.h"
 
 // 知名专家、主任医师、副主任医师、主治医师和医师
@@ -45,5 +44,6 @@ extern int compareByDocName(const void* a_p, const void* b_p);
 
 extern int compareByDocId(const void* a_p, const void* b_p);
 
+extern void writeDoctor(FILE* fp, Dlist* doctor_list);
 
 #endif //DOCTOR_H

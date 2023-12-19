@@ -17,12 +17,10 @@ extern const char EDC[][15];
 
 
 // 大类科室
-
 enum mainDepartment { Inner, Surgery, PediatricM, ENT };
 
 
 // 内科
-
 enum IMD {
     Respiratory,
     Gastroenterology,
@@ -36,7 +34,6 @@ enum IMD {
 
 
 // 外科
-
 enum SD {
     General,
     Neurosurgery,
@@ -52,18 +49,18 @@ enum SD {
 
 
 // 儿科
-
 enum PD { Internal, Pediatric, Neonatology, CNAHC };
 
 
 // 五官科
-
 enum ED { Otolaryngology, Ophthalmology, Stomatology };
 
 
 typedef struct department {
+    // 主科室
     enum mainDepartment main;
 
+    // 下设科室
     union {
         enum IMD imd;
         enum SD sd;
